@@ -27,8 +27,7 @@ rule trimming:
         "logs/fastp/{sample}/log.txt"
     shell:
         """
-        ls /usr/bin/*
-
+        which fastp
         """
 
 
