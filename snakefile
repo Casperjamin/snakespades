@@ -6,6 +6,8 @@ SAMPLES = config['SAMPLES']
 
 conda: "envs/start.yaml"
 
+spades = "~/tools/SPAdes-3.7.1-Linux/bin/spades.py"
+
 rule all:
     input:
         expand("results/{sample}/assembly/assembly.fasta", sample = SAMPLES)
@@ -26,6 +28,6 @@ rule spades:
     params:
         "results/{sample}/assembly"
     shell:
-        "spades -1 {input.forward} -2 {input.reverse} -o {params} "
+        "python {spades} -1 {input.forward} -2 {input.reverse} -o {params} "
         "--careful --cov-cutoff auto "
         "-t {threads} "
