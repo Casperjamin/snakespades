@@ -6,3 +6,5 @@
 config/*
 
 logs/*
+
+results/*
