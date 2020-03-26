@@ -16,8 +16,7 @@ rule trimming:
         forward = lambda wildcards: SAMPLES[wildcards.sample]['forward'],
         reverse = lambda wildcards: SAMPLES[wildcards.sample]['reverse']
     output:
-        forward = "results/data/{sample}/fastp/{sample}_R1.fastq.gz",
-        reverse = "results/data/{sample}/fastp/{sample}_R2.fastq.gz",
+
         json = "results/data/{sample}/fastp/{sample}.json",
         html = "results/data/{sample}/fastp/{sample}.html"
     singularity:
@@ -33,8 +32,8 @@ rule trimming:
 
 rule spades:
     input:
-        forward = "results/data/{sample}/fastp/{sample}_R1.fastq.gz",
-        reverse = "results/data/{sample}/fastp/{sample}_R2.fastq.gz",
+        forward = lambda wildcards: SAMPLES[wildcards.sample]['forward'],
+        reverse = lambda wildcards: SAMPLES[wildcards.sample]['reverse']
     output:
         "results/{sample}/assembly/assembly.fasta"
     singularity:
