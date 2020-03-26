@@ -1,0 +1,17 @@
+__default__:
+  threads: 1
+  vmem: 4G
+  nodes: 1
+  time: 00:30:00
+
+
+spades:
+  threads: 16
+  vmem: 10G
+  time: 24:00:00
+
+
+trimming:
+    threads: 16
+    vmem: 10G
+    time: 24:00:00
