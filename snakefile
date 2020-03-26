@@ -4,6 +4,7 @@ configfile: "config/config.yaml"
 configfile: "samples/samples.yaml"
 SAMPLES = config['SAMPLES']
 
+conda: "envs/start.yaml"
 
 rule all:
     input:
