@@ -24,6 +24,7 @@ rule trimming:
     conda:
         "envs/fastp.yaml"
     threads: 16
+    resources: time_min=300, mem_mb=8000, cpus=16
     log:
         "logs/fastp/{sample}/log.txt"
     shell:
@@ -42,6 +43,8 @@ rule spades:
     singularity:
         "docker://casperjamin/spades:latest"
     threads: 16
+
+    resources: time_min=300, mem_mb=8000, cpus=16
     params:
         "results/{sample}/assembly"
     conda: "envs/start.yaml"
