@@ -26,6 +26,6 @@ rule spades:
     params:
         "results/{sample}/assembly"
     shell:
-        "spades.py -1 {input.forward} -2 {input.reverse} -o {params} "
+        "spades -1 {input.forward} -2 {input.reverse} -o {params} "
         "--careful --cov-cutoff auto "
         "-t {threads} "
