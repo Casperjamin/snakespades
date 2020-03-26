@@ -27,6 +27,7 @@ rule spades:
     threads: 16
     params:
         "results/{sample}/assembly"
+    conda: "envs/start.yaml"
     shell:
         "python {spades} -1 {input.forward} -2 {input.reverse} -o {params} "
         "--careful --cov-cutoff auto "
