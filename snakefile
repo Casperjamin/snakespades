@@ -11,23 +11,6 @@ rule all:
 
 
 
-rule trimming:
-    input:
-        forward = lambda wildcards: SAMPLES[wildcards.sample]['forward'],
-        reverse = lambda wildcards: SAMPLES[wildcards.sample]['reverse']
-    output:
-
-        json = "results/data/{sample}/fastp/{sample}.json",
-        html = "results/data/{sample}/fastp/{sample}.html"
-    singularity:
-        "docker://casperjamin/fastp:latest"
-    threads: 16
-    log:
-        "logs/fastp/{sample}/log.txt"
-    shell:
-        """
-        which fastp
-        """
 
 
 rule spades:
