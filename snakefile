@@ -4,7 +4,6 @@ configfile: "config/config.yaml"
 configfile: "samples/samples.yaml"
 SAMPLES = config['SAMPLES']
 
-print(SAMPLES)
 
 rule all:
     input:
